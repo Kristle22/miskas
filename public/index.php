@@ -1,5 +1,5 @@
 <?php
-
+// ob_get_flush();
 use Illuminate\Contracts\Http\Kernel;
 use Illuminate\Http\Request;
 
