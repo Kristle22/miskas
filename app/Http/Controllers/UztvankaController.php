@@ -86,7 +86,7 @@ class UztvankaController extends Controller
             $uztvanka->juodi += null !== $request->j ? $request->j : 0;
             $uztvanka->rudi += null !== $request->r ? $request->r : 0;
         } else {
-            $uztvanka-sprendimai>juodi -= null !== $request->j ? $request->j : 0;
+            $uztvanka->juodi -= null !== $request->j ? $request->j : 0;
             $uztvanka->rudi -= null !== $request->r ? $request->r : 0;
         }
         $uztvanka->save();
