@@ -3,6 +3,9 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
 
 class UpdateUztvankaRequest extends FormRequest
 {
@@ -13,7 +16,12 @@ class UpdateUztvankaRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return Request::user();
+        // return Auth::check();
+        // return Auth::user()->name;
+        // return Route::has('login');
+        // return true; //simplest
+        // return false; //default
     }
 
     /**

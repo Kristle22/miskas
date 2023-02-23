@@ -35,10 +35,10 @@ Route::get('what-result/{num1}/{num2}', [AtimatorController::class, 'deduct']);
 Route::get('uztvanka', [UztvankaController::class, 'index'])->name('uztvanka-index');
 
 Route::get('uztvanka/create', [UztvankaController::class, 'create'])->name('uztvanka-create');
-
 Route::post('uztvanka/store', [UztvankaController::class, 'store'])->name('uztvanka-store');
 
-Route::get('uztvanka/edit/{Uztvanka}', [UztvankaController::class, 'edit'])->name('uztvanka-edit');
+Route::get('uztvanka/edit/{uztvanka}', [UztvankaController::class, 'edit'])->name('uztvanka-edit');
+Route::post('uztvanka/update/{uztvanka}', [UztvankaController::class, 'update'])->name('uztvanka-save');
 
 
 Auth::routes();
