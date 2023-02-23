@@ -8,6 +8,11 @@ use App\Http\Requests\UpdateUztvankaRequest;
 
 class UztvankaController extends Controller
 {
+     public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -64,9 +69,9 @@ class UztvankaController extends Controller
      */
     public function edit(Uztvanka $uztvanka)
     {
-        //
+        // dd(Uztvanka::where('id', $uztvanka)->first());
+        return view('uztvanka.edit', compact('uztvanka'));
     }
-
     /**
      * Update the specified resource in storage.
      *
@@ -76,7 +81,16 @@ class UztvankaController extends Controller
      */
     public function update(UpdateUztvankaRequest $request, Uztvanka $uztvanka)
     {
-        //
+        // dd($request->all());
+        if (isset($request->add)) {
+            $uztvanka->juodi += null !== $request->j ? $request->j : 0;
+            $uztvanka->rudi += null !== $request->r ? $request->r : 0;
+        } else {
+            $uztvanka-sprendimai>juodi -= null !== $request->j ? $request->j : 0;
+            $uztvanka->rudi -= null !== $request->r ? $request->r : 0;
+        }
+        $uztvanka->save();
+        return redirect()->route('uztvanka-index');
     }
 
     /**
