@@ -40,6 +40,8 @@ Route::post('uztvanka/store', [UztvankaController::class, 'store'])->name('uztva
 Route::get('uztvanka/edit/{uztvanka}', [UztvankaController::class, 'edit'])->name('uztvanka-edit');
 Route::post('uztvanka/update/{uztvanka}', [UztvankaController::class, 'update'])->name('uztvanka-save');
 
+Route::post('uztvanka/delete/{uztvanka}', [UztvankaController::class, 'destroy'])->name('uztvanka-delete');
+
 
 Auth::routes();
 

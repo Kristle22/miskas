@@ -101,6 +101,7 @@ class UztvankaController extends Controller
      */
     public function destroy(Uztvanka $uztvanka)
     {
-        //
+    $uztvanka->delete();
+    return redirect()->route('uztvanka-index');
     }
 }
